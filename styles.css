@@ -1,0 +1,57 @@
+/* ===== Dark mode (only when toggled on) ===== */
+html.cfx-dark {
+  background: #fff !important;
+  filter: invert(0.92) hue-rotate(180deg);
+}
+html.cfx-dark :is(img, video, iframe, canvas) {
+  filter: invert(1) hue-rotate(180deg);
+}
+
+#cfx-theme {
+  position: fixed;
+  right: 14px;
+  bottom: 14px;
+  z-index: 99999;
+  width: 34px;
+  height: 34px;
+  border: 1px solid #bbb;
+  border-radius: 50%;
+  background: #fff;
+  color: #333;
+  font-size: 18px;
+  line-height: 1;
+  cursor: pointer;
+  opacity: 0.6;
+}
+#cfx-theme:hover { opacity: 1; }
+
+/* ===== Problem page sidebar: tags hidden until "Show tags" ===== */
+.sidebox:not(.cfx-open) .tag-box:not([title="Difficulty"]) {
+  display: none !important;
+}
+/* Hide the grey wrapper boxes around hidden tags (but never the one holding difficulty) */
+.sidebox:not(.cfx-open) div:has(> .tag-box:not([title="Difficulty"])):not(:has(> .tag-box[title="Difficulty"])) {
+  display: none !important;
+}
+.cfx-tags-btn {
+  display: block;
+  margin: 6px auto;
+  padding: 2px 10px;
+  border: 1px solid #bbb;
+  border-radius: 4px;
+  background: #f5f5f5;
+  cursor: pointer;
+  font-size: 12px;
+}
+
+/* ===== Problemset list: per-row "show tags" placeholder ===== */
+.problems td > div:has(> a.notice):not(.cfx-open) {
+  font-size: 0 !important; /* hides links and the ", " separators */
+  cursor: pointer;
+}
+.problems td > div:has(> a.notice):not(.cfx-open)::after {
+  content: "show tags";
+  font-size: 11px;
+  color: #999;
+  text-decoration: underline dotted;
+}
