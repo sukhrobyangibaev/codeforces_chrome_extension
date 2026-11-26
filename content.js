@@ -43,7 +43,10 @@
     btn.id = 'cfx-theme';
     btn.title = 'Toggle dark mode';
     btn.textContent = '◐';
-    document.body.appendChild(btn);
+    // Top-right header, next to the language flags. Scrolls away with the page.
+    const flags = document.querySelector('.lang-chooser > div');
+    if (flags) flags.prepend(btn);
+    else document.body.prepend(btn);
 
     const tagBox = document.querySelector('.sidebox:has(.tag-box)');
     if (tagBox) {

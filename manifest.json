@@ -1,7 +1,7 @@
 {
   "manifest_version": 3,
   "name": "Codeforces Dark & Clean",
-  "version": "1.2.0",
+  "version": "1.2.1",
   "description": "Toggleable dark mode for Codeforces and hidden-by-default problem tags, and copy-statement-as-Markdown.",
   "content_scripts": [
     {
